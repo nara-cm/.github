@@ -1,4 +1,4 @@
-Name: Code to Production Workflow
+name: Code to Production Workflow
 
 on:
   pull_request:
