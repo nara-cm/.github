@@ -27,15 +27,16 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 22.2.0
+          - "22.x"
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b #v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@75716637dc8cd06e88621003df6357fdcee67772 #v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 22.2.0
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
   
         if: ${{ ! startsWith(github.ref, 'refs/tags/' || github.ref_name == 'main') }}
       
